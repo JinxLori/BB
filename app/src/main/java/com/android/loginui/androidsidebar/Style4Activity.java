@@ -1,9 +1,11 @@
 package com.android.loginui.androidsidebar;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -13,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.android.loginui.R;
 import com.android.loginui.fragment.FragmentFour;
@@ -20,6 +25,7 @@ import com.android.loginui.fragment.FragmentOne;
 import com.android.loginui.fragment.FragmentThree;
 import com.android.loginui.fragment.FragmentTwo;
 import com.android.loginui.other.MyViewPagerAdapter;
+import com.android.loginui.utils.IOnBackPressed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +51,7 @@ public class Style4Activity extends AppCompatActivity {
 //    private final int[] COLORS = {0xFF455A64, 0xFF00796B, 0xFF795548, 0xFF5B4947, 0xFFF57C00};
     NavigationController mNavigationController;
     private List<Fragment> list;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +61,14 @@ public class Style4Activity extends AppCompatActivity {
         ScreenInfoUtils.fullScreen(this);
 
         setContentView(R.layout.activity_style4);
+
+        Window window = this.getWindow();
+        //取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        //设置状态栏颜色
+        window.setStatusBarColor(R.drawable.background_gradient);
 
         // 底部导航实现
         PageNavigationView pageBottomTabLayout = findViewById(R.id.tab);
@@ -111,7 +126,7 @@ public class Style4Activity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         // 设置toolbar默认图标
-//        toolbar.setNavigationIcon(R.drawable.ic_head);
+        toolbar.setNavigationIcon(R.drawable.ic_head);
 
         //蒙层颜色
         drawerLayout.setScrimColor(Color.TRANSPARENT);
@@ -147,6 +162,15 @@ public class Style4Activity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(@NonNull View drawerView) {
             }
+
         });
     }
+//    @Override
+//    public void onBackPressed(){
+//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment1);
+//        if (!(fragment instanceof IOnBackPressed) || !((IOnBackPressed) fragment).onBackPressed()) {
+////            super.onBackPressed();
+//            Toast.makeText(this,"aaaa",Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }

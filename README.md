@@ -50,3 +50,36 @@ https://github.com/tyzlmjj/PagerBottomTabStrip
         });
 ```
 
+### 卡片滑块：
+
+https://github.com/Ramotion/expanding-collection-android
+
+### Androidx和Android support库共存问题解决：
+
+https://www.jianshu.com/p/f7a7a8765294
+
+### 图片资源过大，导致分配内存不足程序结束运行解决：
+
+#### 报错内容：
+
+```java
+Android:java.lang.OutOfMemoryError: Failed to allocate a 23970828 byte allocation with 2097152 free bytes and 2MB until OOM
+```
+
+#### 解决办法：
+
+为程序添加 `android:largeHeap="true"`
+
+https://stackoverflow.com/questions/32244851/androidjava-lang-outofmemoryerror-failed-to-allocate-a-23970828-byte-allocatio
+
+```xml
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher1"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
+```
+

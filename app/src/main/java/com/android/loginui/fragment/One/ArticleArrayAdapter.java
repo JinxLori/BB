@@ -17,9 +17,9 @@ import com.ramotion.expandingcollection.ECCardContentListItemAdapter;
 import java.util.List;
 
 @SuppressLint({"SetTextI18n", "InflateParams"})
-public class CommentArrayAdapter extends ECCardContentListItemAdapter<Comment> {
+public class ArticleArrayAdapter extends ECCardContentListItemAdapter<Article> {
 
-    public CommentArrayAdapter(@NonNull Context context, @NonNull List<Comment> objects) {
+    public ArticleArrayAdapter(@NonNull Context context, @NonNull List<Article> objects) {
         super(context, R.layout.list_element, objects);
     }
 
@@ -35,29 +35,31 @@ public class CommentArrayAdapter extends ECCardContentListItemAdapter<Comment> {
             rowView = inflater.inflate(R.layout.list_element, null);
             // configure view holder
             viewHolder = new ViewHolder();
-            viewHolder.date = (TextView) rowView.findViewById(R.id.firstLineDate);
+//            viewHolder.date = (TextView) rowView.findViewById(R.id.firstLineDate);
             viewHolder.line1 = (TextView) rowView.findViewById(R.id.firstLine);
             viewHolder.line2 = (TextView) rowView.findViewById(R.id.secondLine);
-            viewHolder.icon = (ImageView) rowView.findViewById(R.id.icon);
+            viewHolder.line3 = (TextView) rowView.findViewById(R.id.thirdLine);
+//            viewHolder.icon = (ImageView) rowView.findViewById(R.id.icon);
             rowView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) rowView.getTag();
         }
 
-        final Comment objectItem = getItem(position);
+        final Article objectItem = getItem(position);
         if (objectItem != null) {
-            viewHolder.line1.setText(objectItem.getCommentPersonName() + ":");
+            viewHolder.line1.setText(objectItem.getCommentPersonName());
             viewHolder.line2.setText(objectItem.getCommentText());
-            viewHolder.date.setText(objectItem.getCommentDate());
-            viewHolder.icon.setImageResource(objectItem.getCommentPersonPictureRes());
+            viewHolder.line3.setText(objectItem.getCommentDate());
+//            viewHolder.date.setText(objectItem.getCommentDate());
+//            viewHolder.icon.setImageResource(objectItem.getCommentPersonPictureRes());
         }
 
         // Removing item by tap on comment icon
 //        viewHolder.icon.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                CommentArrayAdapter.this.remove(objectItem);
-//                CommentArrayAdapter.this.notifyDataSetChanged();
+//                ArticleArrayAdapter.this.remove(objectItem);
+//                ArticleArrayAdapter.this.notifyDataSetChanged();
 //            }
 //        });
 
@@ -65,10 +67,11 @@ public class CommentArrayAdapter extends ECCardContentListItemAdapter<Comment> {
     }
 
     static class ViewHolder {
-        TextView date;
+//        TextView date;
         TextView line1;
         TextView line2;
-        ImageView icon;
+        TextView line3;
+//        ImageView icon;
     }
 
 }

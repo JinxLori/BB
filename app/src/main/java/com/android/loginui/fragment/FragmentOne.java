@@ -5,8 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 
+import com.android.loginui.fragment.One.ArticleArrayAdapter;
 import com.android.loginui.fragment.One.CardData;
-import com.android.loginui.fragment.One.CommentArrayAdapter;
 import com.android.loginui.fragment.One.ExampleDataset;
 import com.android.loginui.fragment.One.ItemsCountView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,7 +28,7 @@ import com.ramotion.expandingcollection.ECCardData;
 import com.ramotion.expandingcollection.ECPagerView;
 import com.ramotion.expandingcollection.ECPagerViewAdapter;
 
-public class FragmentOne extends Fragment {
+public class FragmentOne extends Fragment { // implements IOnBackPressed
     private ECPagerView ecPagerView;
     @Nullable
     @Override
@@ -52,8 +52,8 @@ public class FragmentOne extends Fragment {
                 final CardData cardData = (CardData) data;
 
                 // Create adapter for list inside a card and set adapter to card content
-                CommentArrayAdapter commentArrayAdapter = new CommentArrayAdapter(getContext(), cardData.getListItems());
-                list.setAdapter(commentArrayAdapter);
+                ArticleArrayAdapter articleArrayAdapter = new ArticleArrayAdapter(getContext(), cardData.getListItems());
+                list.setAdapter(articleArrayAdapter);
                 list.setDivider(getResources().getDrawable(R.drawable.list_divider));
                 list.setDividerHeight((int) pxFromDp(getContext(), 0.5f));
                 list.setSelector(R.color.transparent);
@@ -72,18 +72,18 @@ public class FragmentOne extends Fragment {
                 // Set header data from data object
                 TextView title = (TextView) head.findViewById(R.id.title);
                 title.setText(cardData.getHeadTitle());
-                ImageView avatar = (ImageView) head.findViewById(R.id.avatar);
-                avatar.setImageResource(cardData.getPersonPictureResource());
+//                ImageView avatar = (ImageView) head.findViewById(R.id.avatar);
+//                avatar.setImageResource(cardData.getPersonPictureResource());
                 TextView name = (TextView) head.findViewById(R.id.name);
-                name.setText(cardData.getPersonName() + ":");
+                name.setText(cardData.getPersonName());
                 TextView message = (TextView) head.findViewById(R.id.message);
                 message.setText(cardData.getPersonMessage());
-                TextView viewsCount = (TextView) head.findViewById(R.id.socialViewsCount);
-                viewsCount.setText(" " + cardData.getPersonViewsCount());
-                TextView likesCount = (TextView) head.findViewById(R.id.socialLikesCount);
-                likesCount.setText(" " + cardData.getPersonLikesCount());
-                TextView commentsCount = (TextView) head.findViewById(R.id.socialCommentsCount);
-                commentsCount.setText(" " + cardData.getPersonCommentsCount());
+//                TextView viewsCount = (TextView) head.findViewById(R.id.socialViewsCount);
+//                viewsCount.setText(" " + cardData.getPersonViewsCount());
+//                TextView likesCount = (TextView) head.findViewById(R.id.socialLikesCount);
+//                likesCount.setText(" " + cardData.getPersonLikesCount());
+//                TextView commentsCount = (TextView) head.findViewById(R.id.socialCommentsCount);
+//                commentsCount.setText(" " + cardData.getPersonCommentsCount());
 
                 // Add onclick listener to card header for toggle card state
                 head.setOnClickListener(new View.OnClickListener() {
@@ -113,4 +113,13 @@ public class FragmentOne extends Fragment {
     public static float pxFromDp(final Context context, final float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
     }
+
+//    @Override
+//    public boolean onBackPressed() {
+//        if (!ecPagerView.collapse()){
+//            return false;
+//        }else{
+//            return true;
+//        }
+//    }
 }

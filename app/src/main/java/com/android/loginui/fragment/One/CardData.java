@@ -5,7 +5,7 @@ import com.ramotion.expandingcollection.ECCardData;
 import java.util.List;
 import java.util.Random;
 
-public class CardData implements ECCardData<Comment> {
+public class CardData implements ECCardData<Article> {
 
     private String headTitle;
     private Integer headBackgroundResource;
@@ -17,7 +17,7 @@ public class CardData implements ECCardData<Comment> {
     private int personViewsCount;
     private int personCommentsCount;
     private int personLikesCount;
-    private List<Comment> listItems;
+    private List<Article> listItems;
 
     public CardData() {
         Random rnd = new Random();
@@ -99,11 +99,11 @@ public class CardData implements ECCardData<Comment> {
     }
 
     @Override
-    public List<Comment> getListItems() {
+    public List<Article> getListItems() {
         return listItems;
     }
 
-    public void setListItems(List<Comment> listItems) {
+    public void setListItems(List<Article> listItems) {
         this.listItems = listItems;
     }
 }

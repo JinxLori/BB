@@ -1,12 +1,12 @@
 package com.android.loginui.fragment.One;
 
-public class Comment {
+public class Article {
     private Integer commentPersonPictureRes;
     private String commentPersonName;
     private String commentText;
     private String commentDate;
 
-    public Comment(Integer commentPersonPictureRes, String commentPersonName, String commentText, String commentDate) {
+    public Article(Integer commentPersonPictureRes, String commentPersonName, String commentText, String commentDate) {
         this.commentPersonPictureRes = commentPersonPictureRes;
         this.commentPersonName = commentPersonName;
         this.commentText = commentText;
