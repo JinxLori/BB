@@ -54,6 +54,14 @@ https://github.com/tyzlmjj/PagerBottomTabStrip
 
 https://github.com/Ramotion/expanding-collection-android
 
+#### 文件
+
+fragment/fragmentOne    (主类)
+
+fragment/One/...   （其他类）
+
+res/layout/fragment1  list_comment   simple_head  （布局文件）
+
 ### Androidx和Android support库共存问题解决：
 
 https://www.jianshu.com/p/f7a7a8765294
