@@ -1,4 +1,4 @@
-package com.android.loginui.fragment.One;
+package com.android.loginui.fragment.Two;
 
 public class Article {
     private Integer commentPersonPictureRes;

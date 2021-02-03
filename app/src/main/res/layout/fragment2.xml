@@ -1,21 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/fragment1">
+
+<FrameLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="vertical">-->
+
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Page One"-->
+    <!--            android:textColor="#000000"-->
+    <!--            android:textSize="18sp"-->
+    <!--            android:textStyle="bold" />-->
+    <!--    </LinearLayout>-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+        <com.ramotion.expandingcollection.ECBackgroundSwitcherView
+            android:id="@+id/ec_bg_switcher_element"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/background_gradient" />
 
-
-        <TextView
+        <com.android.loginui.fragment.Two.ItemsCountView
+            android:id="@+id/items_count_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Page Two"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:clipChildren="false"
+            android:orientation="horizontal" />
+
+        <com.ramotion.expandingcollection.ECPagerView
+            xmlns:ec="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ec_pager_element"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="0dp"
+            ec:cardHeaderHeightExpanded="200dp"
+            ec:cardHeight="350dp"
+            ec:cardWidth="350dp" />
+    </RelativeLayout>
+    <!--        android:background="@drawable/corners_bg"-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_head"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:elevation="10dp"
+        app:pressedTranslationZ="15dp"
+        app:rippleColor="@color/colorAccent"
+        />
+
+</FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

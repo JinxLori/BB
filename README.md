@@ -56,11 +56,11 @@ https://github.com/Ramotion/expanding-collection-android
 
 #### 文件
 
-fragment/fragmentOne    (主类)
+fragment/fragmentTwo    (主类)
 
-fragment/One/...   （其他类）
+fragment/Two/...   （其他类）
 
-res/layout/fragment1  list_comment   simple_head  （布局文件）
+res/layout/fragment2  list_comment   simple_head  （布局文件）
 
 ### Androidx和Android support库共存问题解决：
 
